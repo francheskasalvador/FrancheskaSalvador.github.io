@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francheska Salvador - Arts & Culture Journalist</title>
+    <style>
+        :root {
+            --primary: #a29ab9;
+            --secondary: #bfb7c6;
+            --tertiary: #c8cad5;
+            --accent: #ccb0bf;
+            --background: #ffffff;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--background);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-flower {
+            margin-right: 8px;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--background);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--background);
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            padding: 4rem 0;
+            background-color: var(--background);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "❀";
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+        
+        .hero::after {
+            content: "✿";
+            position: absolute;
+            bottom: 8%;
+            right: 5%;
+            font-size: 2.5rem;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+        
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--background);
+            font-size: 1.2rem;
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .profile-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-text h1::after {
+            content: "✿";
+            position: absolute;
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: var(--accent);
+        }
+        
+        .profile-text h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .profile-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--background);
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .social-icon:nth-child(1) {
+            background-color: var(--primary);
+        }
+        
+        .social-icon:nth-child(2) {
+            background-color: var(--tertiary);
+        }
+        
+        .social-icon:nth-child(3) {
+            background-color: var(--accent);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 4rem 0;
+            background-color: var(--tertiary);
+            background-image: linear-gradient(45deg, var(--tertiary) 0%, var(--background) 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::before {
+            content: "❀";
+            position: absolute;
+            left: -30px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .section-title::after {
+            content: "❀";
+            position: absolute;
+            right: -30px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .portfolio-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            background-color: var(--background);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary);
+            color: var(--background);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background-color: var(--background);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--background);
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .portfolio-content p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent);
+            color: var(--background);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .portfolio-link:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Commissions Section */
+        .commissions {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: var(--background);
+        }
+        
+        .wip-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wip-container::before {
+            content: "✿";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+        
+        .wip-container::after {
+            content: "✿";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+        
+        .wip-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .wip-text {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .flower-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 0;
+            background-color: var(--primary);
+            background-image: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .testimonials .section-title {
+            color: var(--background);
+        }
+        
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-slide {
+            display: none;
+            padding: 2rem;
+            background-color: var(--background);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+        }
+        
+        .testimonial-image {
+            width: 400px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 1.5rem;
+            border-radius: 10px;
+            border: 3px solid var(--accent);
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            color: var(--background);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--background);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background-color: var(--accent);
+            color: var(--background);
+            transform: scale(1.1);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--background);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .carousel-dot.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--background);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-social a {
+            color: var(--background);
+            text-decoration: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .footer-social a:nth-child(1) {
+            background-color: var(--tertiary);
+        }
+        
+        .footer-social a:nth-child(2) {
+            background-color: var(--secondary);
+        }
+        
+        .footer-social a:nth-child(3) {
+            background-color: var(--accent);
+        }
+        
+        .footer-social a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .profile-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.8rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .portfolio-categories {
+                flex-wrap: wrap;
+            }
+            
+            .category-btn {
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .profile-text h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-image {
+                height: auto;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .footer-links li {
+                margin: 0;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">
+                    <span class="logo-flower">✿</span>
+                    Francheska Salvador
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#commissions">Commissions</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="profile-content">
+                <div class="profile-image" >
+                    <img src="images/franheadshot.png"  alt="Francheska Salvador" class="profile-image">
+                </div>
+                <div class="profile-text">
+                    <h1>Francheska Salvador</h1>
+                    <h2>Arts & Culture Journalist</h2>
+                    <p>
+                        I'm Francheska, a Toronto arts and culture journalist committed to making your creative voice feel seen. I'm drawn to the art that lives in people: the power of culture, the passion behind expression, and spaces where imaginations become reality. As an emerging reporter, I explore the intersections art forms and community through various mediums including multimedia video clips, short films, and written features. I always find inspiration in the whimsicality of everyday moments and meaningful personal stories that are often overlooked in mainstream media. Let's connect and tell your story with soul and colour.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/francheska-salvador-7a1163241/" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/francheskq.s/" class="social-icon"  target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:s13francheska@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            
+            <div class="portfolio-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Videos</button>
+                <button class="category-btn">Articles</button>
+        
+                
+            </div>
+            
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-item" data-category="videos">
+                    <div class="portfolio-image">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yakSh0JzoFo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Centennial College Mock Disaster: Heatwave and Tornado Simulation</h3>
+                        <p>Centennial College students took part in the 2025 annual mock disaster, responding to a combined heatwave and tornado scenario. The hands-on exercise helped them build essential crisis response and teamwork skills.</p>
+                        <a href="https://www.youtube.com/watch?v=yakSh0JzoFo&t=3s&ab_channel=TheTorontoObserver" class="portfolio-link" target="_blank">Watch Video</a>
+                    </div>
+                </div>
+                
+                
+                <div class="portfolio-item" data-category="articles">
+                    <div class="portfolio-image">
+                        <img src="images/artspedagogyarticle.png" alt="Article Cover" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Educators urge Canada's K-12 school systems to implement culturally relevant arts education</h3>
+                        <p>Cultural literacy can be significantly improved through arts-based learning, educational experts say, but creative methods remain overlooked in Canadian school curricula..</p>
+                        <a href="https://torontoobserver.ca/2025/02/16/educators-urge-canadas-k-12-school-systems-to-implement-culturally-relevant-arts-education/" class="portfolio-link" target="_blank">Read Article</a>
+                    </div>
+                </div>
+                
+               
+                <div class="portfolio-item" data-category="articles">
+                    <div class="portfolio-image">
+                        <img src="images/craftsarticle.png" alt="Article Cover" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Canadian craftspeople are sculpting waves of change and resilience</h3>
+                        <p>Statistics Canada reports that Canadian craft exports have increased by 64 per cent from $4.05 billion in 2018 to $6.65 billion in 2022.</p>
+                        <a href="https://torontoobserver.ca/2025/04/26/canadian-craftspeople-are-sculpting-waves-of-change-and-resilience/" class="portfolio-link"target="_blank">Read Article</a>
+                    </div>
+                </div>
+                
+                
+                <div class="portfolio-item" data-category="articles">
+                    <div class="portfolio-image">
+                        <img src="images/loohooarticle.png" alt="Article Cover" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Loohoo and Friends Market celebrates women's power with creativity and cuteness</h3>
+                        <p>Hosted by Loohoo - a retro-inspired gift shop run by Lindsay Duong - the March 15-16 event marked both Women's History Month and Duong's birthday by transforming the space into a vibrant, hyper-feminine hub for local artists, makers and small business owners.</p>
+                        <a href="https://torontoobserver.ca/2025/04/02/loohoo-and-friends-market-celebrates-womens-power-with-creativity-and-cuteness/" class="portfolio-link" target="_blank">Read Article</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="videos">
+                    <div class="portfolio-image">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/koeBS5oxJ5U" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>How Canadian craftspeople are sculpting a wave of change</h3>
+                        <p>Emily Gill is a Toronto-based jewelry designer whose pieces are inspired by coastal textures, oceanic colours and art deco forms. She balances her creative identity with evolving market trends, adapting her techniques while maintaining a strong connection to handcrafted design. Video by Francheska Salvador.</p>
+                        <a href="https://youtu.be/koeBS5oxJ5U?si=m_ZtEclGrPNX7_hj" class="portfolio-link" target="_blank">Watch Video</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="articles">
+                    <div class="portfolio-image">
+                        <img src="images/aisloparticle.png" alt="Video Thumbnail" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Is your feed full of AI 'slop'? Trending low-quality AI videos in a nutshell</h3>
+                        <p>From cats making themselves a chicken dinner to presidents dancing the night away, nonsensical AI-generated clips known as "slop" are gaining massive traction, earning millions of views and thousands of likes.</p>
+                        <a href="https://torontoobserver.ca/2025/03/10/is-your-feed-full-of-ai-slop-trending-low-quality-ai-videos-in-a-nutshell/" class="portfolio-link" target="_blank">Read Article</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="articles">
+                    <div class="portfolio-image">
+                        <img src="images/democratsarticle.png" alt="Video Thumbnail" class="portfolio-image">
+                </div>
+                <div class="portfolio-content" data-category="article">
+                    <h3>Democrats Abroad pack Lithuanian House on U.S. election night</h3>
+                    <p>Lithuanian House served as home base to American Democrats hoping for a victory celebration on U.S. election night.</p>
+                    <a href="https://torontoobserver.ca/2024/11/06/democrats-abroad-lithuanian-house/" class="portfolio-link" target="_blank">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commissions" class="commissions">
+        <div class="container">
+            <h2 class="section-title">Commissions</h2>
+            
+            <div class="wip-container">
+                <h3 class="wip-title">Coming Soon!</h3>
+                <p class="wip-text">
+                    I'm currently working on crafting the perfect video and story commission offerings for you. 
+                    Check back soon to learn how we can collaborate on your story!
+                </p>
+                <div class="flower-decoration">
+                    <span>✿</span>
+                    <span>❀</span>
+                    <span>✿</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-image">
+                        <img src="images/testimonialrita.png" alt="Testimonial" class="testimonial-image">
+                    </div>
+                    <p class="testimonial-text">
+                        Rita Morehouse - Centennial College. Associate Dean, Emergency Management and Public Safety.
+                    </p>
+                    <p class="testimonial-author">- Cultural Magazine Editor</p>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-image">
+                        <img src="images/testimonialtanya.png" alt="Testimonial" class="testimonial-image">
+                    </div>
+                    <p class="testimonial-text">
+                        Tanya Berg - York University. Toronto-based ballet teacher, dance educator, and researcher.
+                    </p>
+                    <p class="testimonial-author">- Gallery Director</p>
+                </div>
+                
+                
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="carousel-dots">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-flower">✿</span>
+                    Francheska Salvador
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#commissions">Commissions</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="copyright">
+                    &copy; <span id="current-year">2025</span> Francheska Salvador. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for the DOM to be fully loaded before running JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Portfolio Filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Get the category to filter
+                    const category = btn.textContent.toLowerCase();
+                    
+                    // Show all items if "All" is selected, otherwise filter
+                    portfolioItems.forEach(item => {
+                        if (category === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            item.dataset.category === category 
+                                ? item.style.display = 'block' 
+                                : item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Testimonial Carousel
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Set current slide index
+                currentSlide = (n + slides.length) % slides.length;
+                
+                // Add active class to current slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            // Next/Previous buttons
+            prevBtn.addEventListener('click', () => {
+                showSlide(currentSlide - 1);
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                showSlide(currentSlide + 1);
+            });
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Auto-rotate carousel (optional)
+            const carouselInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+            
+            // Stop auto-rotation when user interacts with carousel
+            document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => {
+                clearInterval(carouselInterval);
+            });
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
