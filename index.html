@@ -701,18 +701,42 @@
       --text: #333333;
     }
 
-    .contact-form {
-      font-family: 'Montserrat', sans-serif;
-      max-width: 700px;
-      width: 90%;
-      margin: 40px auto;
-      background-color: var(--background);
-      padding: 40px 50px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(162, 154, 185, 0.2);
-      color: var(--text);
-      box-sizing: border-box;
-    }    
+   .contact-form {
+  max-width: 600px;        /* limit width so it’s not full screen */
+  margin: 0 auto;          /* center horizontally */
+  display: flex;
+  flex-direction: column;  /* stack inputs vertically */
+  gap: 16px;               /* space between fields */
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;             /* full width of container */
+  padding: 12px 15px;      /* comfy padding */
+  font-size: 1rem;
+  border: 2px solid var(--secondary);
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.contact-form textarea {
+  min-height: 150px;       /* taller textarea */
+  resize: vertical;        /* allow vertical resize */
+}
 </style>
 </head>
 <body>
