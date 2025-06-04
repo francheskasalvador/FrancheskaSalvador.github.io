@@ -395,109 +395,96 @@
         }
         
         /* Testimonials Section */
-        .testimonials {
-            padding: 4rem 0;
-            background-color: var(--primary);
-            background-image: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-        
-        .testimonials .section-title {
-            color: var(--background);
-        }
-        
-        .testimonial-carousel {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial-slide {
-            display: none;
-            padding: 2rem;
-            background-color: var(--background);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .testimonial-slide.active {
-            display: block;
-        }
-        
-        .testimonial-image {
-            width: 400px;
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto 1.5rem;
-            border-radius: 10px;
-            border: 3px solid var(--accent);
-            background-color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-            color: var(--background);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--accent);
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-            gap: 1rem;
-        }
-        
-        .carousel-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--background);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--primary);
-            font-size: 1.2rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        .carousel-btn:hover {
-            background-color: var(--accent);
-            color: var(--background);
-            transform: scale(1.1);
-        }
-        
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-            gap: 0.5rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--background);
-            opacity: 0.5;
-            cursor: pointer;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        
-        .carousel-dot.active {
-            opacity: 1;
-            transform: scale(1.2);
-        }
+      
+:root {
+  --primary: #a29ab9;
+  --secondary: #bfb7c6;
+  --tertiary: #c8cad5;
+  --accent: #ccb0bf;
+  --background: #ffffff;
+  --text: #333333;
+}
+
+.testimonials-carousel {
+  background: var(--background);
+  padding: 3rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  background: var(--tertiary);
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 4px solid var(--accent);
+}
+
+.carousel-caption {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.carousel-caption span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.carousel-btn:hover {
+  color: var(--primary);
+}
+
+.carousel-btn.prev {
+  left: 0.5rem;
+}
+
+.carousel-btn.next {
+  right: 0.5rem;
+}
+
         
         /* Footer */
         footer {
@@ -956,43 +943,30 @@
   </div>
       
 </section>
+   <section id="testimonials" class="testimonials-carousel">
+  <div class="container">
+    <h2 class="section-title"> Words That Made Me Smile!</h2>
 
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            
-            <div class="testimonial-carousel">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-image">
-                    <img src="images/testimonialrita.png" alt="Testimonial" class="testimonial-image"> 
-                    </div>
-                    <p class="testimonial-author">- Rita Morehouse - Centennial College. Associate Dean, Emergency Management and Public Safety.</p>
-                </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-image">
-                        <img src="images/testimonialtanya.png" alt="Testimonial" class="testimonial-image">
-                    </div>
-                    <p class="testimonial-author">- Tanya Berg - York University. Toronto-based ballet teacher, dance educator, and researcher.</p>
-                </div>
-                
-                
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-btn next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="carousel-dots">
-                    <div class="carousel-dot active"></div>
-                    <div class="carousel-dot"></div>
-                </div>
-            </div>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <img src="images/testimonialrita.png" alt="Testimonial from Rita" class="carousel-img">
+          <p class="carousel-caption">“Your professionalism and initiative are rare.”<br><span>— Rita Morehouse, Associate Dean</span></p>
         </div>
-    </section>
+
+        <div class="carousel-slide">
+          <img src="images/testimonialtanya.png" alt="Testimonial from Tanya" class="carousel-img">
+          <p class="carousel-caption">“You have a bright future ahead.”<br><span>— Tanya Berg, Ballet Teacher & Researcher</span></p>
+        </div>
+      </div>
+
+      <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+    </div>
+  </div>
+</section>
+
 
     <footer>
         <div class="container">
@@ -1025,98 +999,18 @@
         </div>
     </footer>
 
-    <script>
-        // Wait for the DOM to be fully loaded before running JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Navigation
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a nav link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-            
-            // Portfolio Filtering
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    categoryBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-                    
-                    // Get the category to filter
-                    const category = btn.textContent.toLowerCase();
-                    
-                    // Show all items if "All" is selected, otherwise filter
-                    portfolioItems.forEach(item => {
-                        if (category === 'all') {
-                            item.style.display = 'block';
-                        } else {
-                            item.dataset.category === category 
-                                ? item.style.display = 'block' 
-                                : item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Testimonial Carousel
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            let currentSlide = 0;
-            
-            function showSlide(n) {
-                // Remove active class from all slides and dots
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Set current slide index
-                currentSlide = (n + slides.length) % slides.length;
-                
-                // Add active class to current slide and dot
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-            }
-            
-            // Next/Previous buttons
-            prevBtn.addEventListener('click', () => {
-                showSlide(currentSlide - 1);
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                showSlide(currentSlide + 1);
-            });
-            
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                });
-            });
-            
-            // Auto-rotate carousel (optional)
-            const carouselInterval = setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 5000);
-            
-            // Stop auto-rotation when user interacts with carousel
-            document.querySelector('.testimonial-carousel').addEventListener('mouseenter', () => {
-                clearInterval(carouselInterval);
-            });
-            
-            // Set current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-    </script>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const track = document.querySelector('.carousel-track');
+
+  function moveSlide(step) {
+    currentSlide += step;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    const offset = -currentSlide * 100;
+    track.style.transform = `translateX(${offset}%)`;
+  }
+</script>
+</body>
+    
