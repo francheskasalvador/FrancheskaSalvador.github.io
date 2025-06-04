@@ -394,36 +394,32 @@
             font-size: 1.2rem;
         }
         
-        /* Testimonials Section */
+ 
       
-:root {
-  --primary: #a29ab9;
-  --secondary: #bfb7c6;
-  --tertiary: #c8cad5;
-  --accent: #ccb0bf;
-  --background: #ffffff;
-  --text: #333333;
-}
-
+/* === Testimonials Carousel === */
 .testimonials-carousel {
-  background: var(--background);
-  padding: 3rem 1rem;
+  background: var(--tertiary);
+  margin-top: 4rem;
+  padding: 4rem 1rem;
+  border-radius: 20px 20px 0 0;
   font-family: 'Montserrat', sans-serif;
   color: var(--text);
   text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.carousel-title {
-  font-size: 2rem;
+.testimonials-carousel .section-title {
+  font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 2rem;
 }
 
 .carousel-wrapper {
   position: relative;
-  max-width: 360px;
+  max-width: 700px;
   margin: 0 auto;
   overflow: hidden;
+  padding: 0 3rem;
 }
 
 .carousel-track {
@@ -433,24 +429,31 @@
 
 .carousel-slide {
   min-width: 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  background: var(--tertiary);
+  padding: 2rem;
+  background: var(--background);
   border-radius: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .carousel-img {
-  width: 100%;
+  max-width: 100%;
   border-radius: 12px;
   margin-bottom: 1rem;
-  border: 4px solid var(--accent);
+  border: 5px solid var(--accent);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-caption {
-  font-size: 0.95rem;
-  color: var(--text);
+  background: var(--tertiary);
+  display: inline-block;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
   line-height: 1.4;
+  color: var(--text);
 }
 
 .carousel-caption span {
@@ -461,31 +464,8 @@
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-  font-size: 2.5rem;
-  background: none;
-  border: none;
-  color: var(--accent);
-  cursor: pointer;
-  z-index: 10;
-  transition: color 0.2s ease;
-}
+  position: a
 
-.carousel-btn:hover {
-  color: var(--primary);
-}
-
-.carousel-btn.prev {
-  left: 0.5rem;
-}
-
-.carousel-btn.next {
-  right: 0.5rem;
-}
-
-        
         /* Footer */
         footer {
             background-color: var(--primary);
@@ -942,27 +922,36 @@
     </div>
   </div>
       
-</section>
-   <section id="testimonials" class="testimonials-carousel">
+<section id="testimonials" class="testimonials-carousel">
   <div class="container">
-    <h2 class="section-title"> Words That Made Me Smile!</h2>
+    <h2 class="section-title">Testimonials</h2>
 
     <div class="carousel-wrapper">
-      <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
-
       <div class="carousel-track">
         <div class="carousel-slide">
-          <img src="images/testimonialrita.png" alt="Testimonial from Rita" class="carousel-img">
-          <p class="carousel-caption">“Your professionalism and initiative are rare.”<br><span>— Rita Morehouse, Associate Dean</span></p>
+          <img src="images/testimonialrita.png" alt="Rita Morehouse" class="carousel-img" />
+          
+            <span>- Rita Morehouse - Centennial College. Associate Dean, Emergency Management and Public Safety.</span>
+          </div>
         </div>
-
         <div class="carousel-slide">
-          <img src="images/testimonialtanya.png" alt="Testimonial from Tanya" class="carousel-img">
-          <p class="carousel-caption">“You have a bright future ahead.”<br><span>— Tanya Berg, Ballet Teacher & Researcher</span></p>
+          <img src="images/testimonialtanya.png" alt="Tanya Berg" class="carousel-img" />
+            <span>- Tanya Berg - York University. Toronto-based ballet teacher, dance educator, and researcher.</span>
+          </div>
         </div>
+        <!-- Add more testimonial slides here -->
       </div>
 
-      <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+      <!-- Carousel navigation buttons -->
+      <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+      <!-- Dot indicators -->
+      <div class="carousel-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <!-- Add more dots for more slides -->
+      </div>
     </div>
   </div>
 </section>
@@ -1003,6 +992,20 @@
   let currentSlide = 0;
   const slides = document.querySelectorAll('.carousel-slide');
   const track = document.querySelector('.carousel-track');
+  const dots = document.querySelectorAll('.dot');
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    const offset = -currentSlide * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+  }
 
   function moveSlide(step) {
     currentSlide += step;
@@ -1010,7 +1013,9 @@
     if (currentSlide >= slides.length) currentSlide = 0;
     const offset = -currentSlide * 100;
     track.style.transform = `translateX(${offset}%)`;
+    updateDots();
   }
 </script>
+
 </body>
     
